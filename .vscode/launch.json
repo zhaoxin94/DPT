@@ -1,0 +1,36 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "train_DPT",
+            "type": "python",
+            "request": "launch",
+            "program": "train.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--root", "~/data/CLIP",
+                "--seed", "1", 
+                "--trainer", "DPT", 
+                "--dataset-config-file", "configs/datasets/caltech101.yaml",
+                "--config-file", "configs/trainers/VPT/vit_b16.yaml",
+                "--output-dir", "output/", 
+                "TRAINER.COOP.N_CTX", "16",
+                "TRAINER.COOP.CSC", "False",
+                "TRAINER.COOP.CLASS_TOKEN_POSITION", "end",
+                "DATASET.NUM_SHOTS", "16",
+                "TRAINER.VPT.N_CTX", "10",
+                "TRAINER.TOPDOWN_SECOVPT.BOTTOMLIMIT", "12",
+                "TRAINER.SELECTED_COVPT.CPN", "10",
+                "OPTIM.LR", "0.01",
+                "OPTIM.MAX_EPOCH", "60",
+                "PRETRAIN.C", "30",
+                "TRAINER.ALPHA", "0.3"
+
+            ]
+        }
+    ]
+}
